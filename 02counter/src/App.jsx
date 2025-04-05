@@ -36,12 +36,38 @@ function App() {
     return false
   }
   else{
-  setCounter(counter +1);
-  console.log("clicked", counter);}
+  // setCounter(counter +1);
+  // console.log("clicked", counter);}
   
    /*error assignment to constant variable because our counter variable is constant, if let than will work..
    But, we can directly setCounter(counter + 1) and it will update the value in UI everywhere counter is present(note we need to comment counter= counter + 1 in our case)*/
+
+
+   /* suppose WE have multiple duplicates of  setCounter(counter +1), than what happens?*/
+
+  //  setCounter(counter +1);
+  //  setCounter(counter +1);
+  //  setCounter(counter +1);
+  //  setCounter(counter +1);
+
+  /*Will only update by +1 even when multiple duplicate setCountet(counter +1) as all copies of setCounter(counter +1) is doing the same work */
+
+  
+ //So, if want all of them to add and then update the value...
+
+ setCounter(prevCounter => prevCounter +1)
+ setCounter(prevCounter => prevCounter +1)
+ setCounter(prevCounter => prevCounter +1)
+ setCounter(prevCounter => prevCounter +1)
+
+ /*setCounter is also a call back. In the above code what we did was previous counter i.e prevCounter update +1 and the updated value goes to next setCounter() and so on. Finally, the last setCounter accumulates the updated value from above and add +1 as a result suppose if the initial Add Value was 15 than onclicking Add Value button, the setCounter()bundles all the setCounter()s together with an updated value and displays 19 on the webpage*/
+  }
  }
+
+ 
+
+
+
 
  //To remove Value:
 
